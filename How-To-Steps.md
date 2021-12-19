@@ -8,7 +8,7 @@
 `create database e2e;`
  
 ## Refer to .py file: Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
-`!pip install pymysql
+!pip install pymysql
 from sqlalchemy import create_engine
 import sqlalchemy
 import pandas as pd
@@ -24,7 +24,7 @@ engine = create_engine(connection_string)
 print (engine.table_names())
 
 csvfile = pd.read_csv('https://raw.githubusercontent.com/cindym02/E2E-Final-Assignment/main/H1N1_Flu_Vaccines.csv')
-csvfile.to_sql('H1N1_Flu_Vaccines', con=engine, if_exists='append')`
+csvfile.to_sql('H1N1_Flu_Vaccines', con=engine, if_exists='append')
 
 ## Create a dump (.sql) file
 `sudo mysqldump e2e > database_dump.sql`
@@ -33,7 +33,7 @@ csvfile.to_sql('H1N1_Flu_Vaccines', con=engine, if_exists='append')`
 `scp database_dump.sql cindy504@20.127.8.44:/home/cindy504`
 
 ## Refer to .sql file: Create a trigger
-`delimiter $$
+delimiter $$
 CREATE TRIGGER h1n1_concern_trigger BEFORE INSERT ON H1N1_Flu_Vaccines
 FOR EACH ROW
 BEGIN
@@ -42,7 +42,7 @@ BEGIN
     SET MESSAGE_TEXT = 'ERROR: H1N1 concern should be a numerical value between 0 and 3. Please try again';
 	 END IF;
 END; $$
-delimiter ;`
+delimiter ;
 
  
  
