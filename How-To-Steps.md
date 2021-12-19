@@ -1,8 +1,8 @@
 # End to End E2E Final Assignment How-To Guide
  
 # Create a mysql user that can access all databases on that mysql installation called ‘DBA’ with password ‘ahi2021’
-`CREATE USER ‘dba'@'%' IDENTIFIED BY ‘ahi2021’;
-GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;`
+`CREATE USER ‘dba'@'%' IDENTIFIED BY ‘ahi2021’;`
+`GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;`
 
 # Create a new database called ‘e2e'
 create database e2e;
