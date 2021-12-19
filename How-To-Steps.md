@@ -4,11 +4,11 @@
 `CREATE USER ‘dba'@'%' IDENTIFIED BY ‘ahi2021’;`
 `GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;`
 
-# Create a new database called ‘e2e'
+## Create a new database called ‘e2e'
 `create database e2e;`
  
-# Refer to .py file: Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
-!pip install pymysql
+## Refer to .py file: Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
+`!pip install pymysql
 from sqlalchemy import create_engine
 import sqlalchemy
 import pandas as pd
@@ -24,16 +24,16 @@ engine = create_engine(connection_string)
 print (engine.table_names())
 
 csvfile = pd.read_csv('https://raw.githubusercontent.com/cindym02/E2E-Final-Assignment/main/H1N1_Flu_Vaccines.csv')
-csvfile.to_sql('H1N1_Flu_Vaccines', con=engine, if_exists='append')
+csvfile.to_sql('H1N1_Flu_Vaccines', con=engine, if_exists='append')`
 
-# Create a dump (.sql) file
-sudo mysqldump e2e > database_dump.sql
+## Create a dump (.sql) file
+`sudo mysqldump e2e > database_dump.sql`
 
-# Using the SCP command from your terminal, move that file to your own local computer.
-scp database_dump.sql cindy504@20.127.8.44:/home/cindy504
+## Using the SCP command from your terminal, move that file to your own local computer.
+`scp database_dump.sql cindy504@20.127.8.44:/home/cindy504`
 
-# Refer to .sql file: Create a trigger
-delimiter $$
+## Refer to .sql file: Create a trigger
+`delimiter $$
 CREATE TRIGGER h1n1_concern_trigger BEFORE INSERT ON H1N1_Flu_Vaccines
 FOR EACH ROW
 BEGIN
@@ -42,7 +42,7 @@ BEGIN
     SET MESSAGE_TEXT = 'ERROR: H1N1 concern should be a numerical value between 0 and 3. Please try again';
 	 END IF;
 END; $$
-delimiter ;
+delimiter ;`
 
  
  
