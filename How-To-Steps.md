@@ -7,7 +7,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;
 # Create a new database called ‘e2e'
 create database e2e;
  
-# Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
+# Refer to .py file: Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
 !pip install pymysql
 from sqlalchemy import create_engine
 import sqlalchemy
@@ -32,7 +32,7 @@ sudo mysqldump e2e > database_dump.sql
 # Using the SCP command from your terminal, move that file to your own local computer.
 scp database_dump.sql cindy504@20.127.8.44:/home/cindy504
 
-# Create a trigger
+# Refer to .sql file: Create a trigger
 delimiter $$
 CREATE TRIGGER h1n1_concern_trigger BEFORE INSERT ON H1N1_Flu_Vaccines
 FOR EACH ROW
