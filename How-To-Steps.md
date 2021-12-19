@@ -1,11 +1,11 @@
 # End to End E2E Final Assignment How-To Guide
  
 # Create a mysql user that can access all databases on that mysql installation called ‘DBA’ with password ‘ahi2021’
-#CREATE USER ‘dba'@'%' IDENTIFIED BY ‘ahi2021’;
-#GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;
+CREATE USER ‘dba'@'%' IDENTIFIED BY ‘ahi2021’;
+GRANT ALL PRIVILEGES ON *.* TO 'dba'@'%' WITH GRANT OPTION;
 
 # Create a new database called ‘e2e'
-#create database e2e;
+create database e2e;
  
 # Create a new table called ‘h1n1’ that lives within the ‘e2e’ database
 !pip install pymysql
@@ -33,8 +33,8 @@ sudo mysqldump e2e > database_dump.sql
 scp database_dump.sql cindy504@20.127.8.44:/home/cindy504
 
 # Create a trigger
-#delimiter $$
-#CREATE TRIGGER h1n1_concern_trigger BEFORE INSERT ON H1N1_Flu_Vaccines
+delimiter $$
+CREATE TRIGGER h1n1_concern_trigger BEFORE INSERT ON H1N1_Flu_Vaccines
 FOR EACH ROW
 BEGIN
 	 IF NEW.h1n1_concern >= 3 THEN
